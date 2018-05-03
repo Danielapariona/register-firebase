@@ -33,7 +33,9 @@ function writeUserData(name, email, dni) {
           document.getElementById('register-js').classList.add('d-none');
           document.getElementById('message').classList.remove('d-none');
         }
-        if (form.checkValidity() === false) {
+
+
+        if (form.checkValidity() === false ) {
           event.preventDefault();
           event.stopPropagation();
         }
