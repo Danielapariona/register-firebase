@@ -10,7 +10,7 @@ firebase.initializeApp(config);
 
 /* Inputs */
 function writeUserData(name, email, dni) {
-  firebase.database().ref('leads-interfondos').push({
+  firebase.database().ref('users').push({
     name: name,
     email: email,
     dni: dni
@@ -28,17 +28,16 @@ function writeUserData(name, email, dni) {
         const name = document.getElementById('validationCustom01').value;
         const email = document.getElementById('validationCustom02').value;
         const dni = document.getElementById('validationCustom03').value;
-        if( name !== "" && email !== "" && dni !== "" && form.checkValidity()) {
-          console.log('nadie esta vacio');
+        if (name !== "" && email !== "" && dni !== "" && form.checkValidity()) {
           writeUserData(name, email, dni);
-          console.log('se envio los datos');
+          document.getElementById('register-js').classList.add('d-none');
+          document.getElementById('message').classList.remove('d-none');
         }
-
-        if(form.checkValidity() === false) {
+        if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
         }
-        
+
         form.classList.add('was-validated');
       }, false);
     });
