@@ -1,0 +1,52 @@
+:root {
+  --green: #009B3A; 
+  --gray: rgb(138, 141, 143);
+  
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+nav {
+  margin: 2em 0;
+}
+
+.subtitle {
+  padding: 0 0 1em 0;
+  color: var(--gray);
+}
+
+footer {
+  background-color: var(--green);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3.5em;
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+/* Restableciendo valores */ 
+.disabled {
+  background-color: var(--gray);
+}
+
+
+/* Helpers */
+.text-green {
+  color: var(--green);
+}
+
+.text-gray {
+  color: var(--gray);
+}
+
+.border-green {
+  border: 2px solid var(--green);
+  border-radius: 5px;
+  padding: 1.5em;
+}
