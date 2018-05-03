@@ -24,16 +24,21 @@ function writeUserData(name, email, dni) {
     var validation = Array.prototype.filter.call(forms, function (form) {
       form.addEventListener('submit', function (event) {
         event.preventDefault();
-        // datos se guardan
+        // Guarda datos de usuarios.
         const name = document.getElementById('validationCustom01').value;
         const email = document.getElementById('validationCustom02').value;
         const dni = document.getElementById('validationCustom03').value;
-        writeUserData(name, email, dni);
+        if( name !== "" && email !== "" && dni !== "" && form.checkValidity()) {
+          console.log('nadie esta vacio');
+          writeUserData(name, email, dni);
+          console.log('se envio los datos');
+        }
 
-        if (form.checkValidity() === false) {
+        if(form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
         }
+        
         form.classList.add('was-validated');
       }, false);
     });
