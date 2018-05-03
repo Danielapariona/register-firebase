@@ -28,19 +28,33 @@
         </div>
         <div class="col-md-4">
           <div class="border-green">
-            <form action="">
-              <h4 class="text-center text-green m-3">Regístraste aquí</h4>
-              <input class="form-control mb-3" type="text" placeholder="Nombre">
-              <input class="form-control mb-3" type="text" placeholder="Correo">
-              <input class="form-control  mb-3" type="text" placeholder="DNI">
-              <div class="form-check  mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" required="">
-                <label class="form-check-label" for="invalidCheck3">
-                  Acepto los
-                  <a href="#">términos y condiciones</a>
-                </label>
+            <form class="needs-validation" novalidate>
+              <h4 class="text-center text-green">Regístraste aquí</h4>
+              <div class="form-group">
+                <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre" required>
+                <div class="invalid-feedback">Debe ingresar su nombre</div>
               </div>
-              <button class="btn btn-block disabled" type="submit">Enviar</button>
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="Correo" id="validationCustom02" required>
+                <div class="invalid-feedback">Ingrese un email válido</div>
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="DNI" id="validationCustom03" required>
+                <div class="invalid-feedback">Ingrese su nro de DNI</div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                  <label class="form-check-label" for="invalidCheck">
+                    Acepto los
+                    <a href="#">Términos y condiciones</a>
+                  </label>
+                  <div class="invalid-feedback">
+                    Debe aceptar los términos y condiciones
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-block" type="submit" id="send-data">Enviar</button>
             </form>
           </div>
         </div>
@@ -49,6 +63,11 @@
   </main>
   <footer>
   </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
   <script src="app.js"></script>
 </body>
 
