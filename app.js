@@ -9,11 +9,12 @@ var config = {
 firebase.initializeApp(config);
 
 /* Inputs */
-function writeUserData(name, email, dni) {
+function writeUserData(name, email, typeDocument, numberDocument) {
   firebase.database().ref('users').push({
     name: name,
     email: email,
-    dni: dni
+    typeDocument: typeDocument,
+    numberDocument: numberDocument
   });
 }
 
@@ -21,10 +22,12 @@ function writeUserData(name, email, dni) {
   'use strict';
   window.addEventListener('load', function () {
     const forms = document.getElementsByClassName('needs-validation');
-    const dni = document.getElementById('validationCustom03');
-    dni.addEventListener('input', function () {
-      const emailValid = document.getElementById('invalid-dni');
-      (dni.value.length > 8) ? emailValid.classList.add('d-block') : emailValid.classList.remove('d-block');
+
+    const typeDocument = document.getElementById('validationCustom03');
+    
+    const numberDocument = document.getElementById('validationCustom04');
+    numberDocument.addEventListener('input', function () {
+      (numberDocument.value.length > 8) ? numberDocument.classList.add('is-invalid') : numberDocument.classList.remove('is-invalid');
     });
 
     var validation = Array.prototype.filter.call(forms, function (form) {
@@ -33,9 +36,10 @@ function writeUserData(name, email, dni) {
         // Guarda datos de usuarios.
         const name = document.getElementById('validationCustom01').value;
         const email = document.getElementById('validationCustom02').value;
-        const dni = document.getElementById('validationCustom03');
-        if (name !== "" && email !== "" && dni.value !== "" && form.checkValidity()) {
-          writeUserData(name, email, dni.value);
+        
+
+        if (name !== "" && email !== "" && numberDocument.value !== "" && form.checkValidity()) {
+          writeUserData(name, email, typeDocument.value, numberDocument.value);
           document.getElementById('register-js').classList.add('d-none');
           document.getElementById('message').classList.remove('d-none');
         }
