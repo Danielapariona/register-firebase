@@ -34,7 +34,6 @@ function writeUserData(name, email, dni) {
           document.getElementById('message').classList.remove('d-none');
         }
 
-
         if (form.checkValidity() === false ) {
           event.preventDefault();
           event.stopPropagation();
