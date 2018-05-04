@@ -18,25 +18,48 @@ function writeUserData(name, email, typeDocument, numberDocument) {
   });
 }
 
+
+function validateCharacter(numberDocument, numCharacter) {
+  (numberDocument.value.length > numCharacter) ? numberDocument.classList.add('is-invalid') : numberDocument.classList.remove('is-invalid');
+}
+
 (function () {
   'use strict';
   window.addEventListener('load', function () {
     const forms = document.getElementsByClassName('needs-validation');
-
-    const typeDocument = document.getElementById('validationCustom03');
-    
     const numberDocument = document.getElementById('validationCustom04');
+    const typeDocument = document.getElementById('validationCustom03');
     numberDocument.addEventListener('input', function () {
-      (numberDocument.value.length > 8) ? numberDocument.classList.add('is-invalid') : numberDocument.classList.remove('is-invalid');
+      const numCharacterDni = 8;
+      validateCharacter(numberDocument, numCharacterDni);
     });
+
+    typeDocument.addEventListener('change', function (e) {
+      const type = e.target.value;
+      numberDocument.value = "";
+      numberDocument.focus();
+      if (type === 'c.e.') {
+        console.log('c.e');
+        numberDocument.addEventListener('input', function () {
+          const numCharacterCE = 9;
+          validateCharacter(numberDocument, numCharacterCE);
+        });
+      } else if (type === 'dni') {
+        console.log('dni');
+        numberDocument.addEventListener('input', function () {
+          const numCharacterDni = 8;
+          validateCharacter(numberDocument, numCharacterCE);
+        });
+      }
+    })
 
     var validation = Array.prototype.filter.call(forms, function (form) {
       form.addEventListener('submit', function (event) {
         event.preventDefault();
         // Guarda datos de usuarios.
-        const name = document.getElementById('validationCustom01').value;
-        const email = document.getElementById('validationCustom02').value;
         
+        const email = document.getElementById('validationCustom02').value;
+
 
         if (name !== "" && email !== "" && numberDocument.value !== "" && form.checkValidity()) {
           writeUserData(name, email, typeDocument.value, numberDocument.value);
