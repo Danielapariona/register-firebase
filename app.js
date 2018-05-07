@@ -18,7 +18,6 @@ function writeUserData(name, email, typeDocument, numberDocument) {
   });
 }
 
-
 function validateCharacter(numberDocument, numCharacter) {
   (numberDocument.value.length > numCharacter) ? numberDocument.classList.add('is-invalid') : numberDocument.classList.remove('is-invalid');
 }
@@ -27,8 +26,15 @@ function validateCharacter(numberDocument, numCharacter) {
   'use strict';
   window.addEventListener('load', function () {
     const forms = document.getElementsByClassName('needs-validation');
+    const name = document.getElementById('validationCustom01');
     const numberDocument = document.getElementById('validationCustom04');
     const typeDocument = document.getElementById('validationCustom03');
+    const acceptTerms = document.getElementById('accept-terms');
+    acceptTerms.addEventListener('click', function () {
+      document.getElementById("invalidCheck").checked = true;
+      $('#exampleModalLong').modal('hide');
+    });
+
     document.getElementById('validationCustom01').focus();
 
     numberDocument.addEventListener('input', function () {
@@ -44,6 +50,7 @@ function validateCharacter(numberDocument, numCharacter) {
         numberDocument.placeholder = 'Ingrese número C.E';
         numberDocument.addEventListener('input', function () {
           const numCharacterCE = 9;
+          console.log(numCharacterCE);
           validateCharacter(numberDocument, numCharacterCE);
         });
       } else if (type === 'dni') {
@@ -59,21 +66,18 @@ function validateCharacter(numberDocument, numCharacter) {
       form.addEventListener('submit', function (event) {
         event.preventDefault();
         // Guarda datos de usuarios.
-
+        console.log('botón submit');
         const email = document.getElementById('validationCustom02').value;
-
-
-        if (name !== "" && email !== "" && numberDocument.value !== "" && form.checkValidity()) {
-          writeUserData(name, email, typeDocument.value, numberDocument.value);
+        if (name != "" && email !== ""  && numberDocument.value !== "" && form.checkValidity()) {
+          console.log('ninguno vacío')
+          writeUserData(name.value, email, typeDocument.value, numberDocument.value);
           document.getElementById('register-js').classList.add('d-none');
           document.getElementById('message').classList.remove('d-none');
         }
-
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
         }
-
         form.classList.add('was-validated');
       }, false);
     });

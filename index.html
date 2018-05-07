@@ -41,22 +41,22 @@
               <div class="form-row">
                 <div class="col-md-4">
                   <select class="form-control" id="validationCustom03" required>
-                    <option value="dni">DNI</option>
+                    <option value="dni" selected>DNI</option>
                     <option value="c.e.">C.E</option>
                   </select>
                   <div class="invalid-feedback">Debe seleccionar un tipo de documento</div>
                 </div>
                 <div class="col-md-8">
-                  <input class="form-control" type="number" placeholder="Ingrese número DNI" id="validationCustom04" max="99999999" required>
+                  <input class="form-control" type="number" placeholder="Ingrese número DNI" id="validationCustom04" max="999999999" required>
                   <div class="invalid-feedback" id="invalid-dni">Ingrese número de documento válido</div>
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group pt-5">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                  <input class="form-check-input" type="checkbox" id="invalidCheck" required>
                   <small class="form-check-label" for="invalidCheck">
                     Acepto los
-                    <a href="#">Términos y condiciones</a>
+                    <a data-toggle="modal" data-target="#exampleModalLong" href="#">Términos y condiciones</a>
                   </small>
                   <div class="invalid-feedback">
                     Debe aceptar los términos y condiciones
@@ -79,6 +79,50 @@
         </div>
       </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Términos y condiciones</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid" style="height: 350px; overflow-y: auto;">
+              <p>
+                Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charmander Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit. Charmeleon Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charizard
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Squirtle Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit.
+              </p>
+              <p>
+                Wartortle Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blastoise Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Caterpie Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metapod Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Butterfree Lorem ipsum dolor sit amet, consectetur adipiscing elit. Weedle Lorem
+                ipsum dolor sit amet, consectetur adipiscing elit. Kakuna Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit.
+              </p>
+              <p>
+                Beedrill Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pidgey Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Pidgeotto Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pidgeot Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Rattata Lorem ipsum dolor sit amet, consectetur adipiscing elit. Raticate Lorem
+                ipsum dolor sit amet, consectetur adipiscing elit. Spearow Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Fearow Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="accept-terms">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
   <footer>
   </footer>
