@@ -22,13 +22,7 @@ function validateCharacter(numberDocument, numCharacter) {
   (numberDocument.value.length > numCharacter) ? numberDocument.classList.add('is-invalid') : numberDocument.classList.remove('is-invalid');
 }
 
-function fullFields(name, email, typeDocument, numberDocument, form) {
-  if (name.value != "" && email.value !== "" && typeDocument.value != "" && numberDocument.value !== "" && form.checkValidity()) {
-    writeUserData(name.value, email.value, typeDocument.value, numberDocument.value);
-    document.getElementById('register-js').classList.add('d-none');
-    document.getElementById('message').classList.remove('d-none');
-  }
-}
+
 
 (function () {
   'use strict';
@@ -41,7 +35,7 @@ function fullFields(name, email, typeDocument, numberDocument, form) {
     const numberDocument = document.getElementById('validationCustom04');
     const acceptTerms = document.getElementById('accept-terms');
     acceptTerms.addEventListener('click', function () {
-      document.getElementById("invalidCheck").checked = true;
+      document.getElementById("validationCustom05").checked = true;
       $('#exampleModalLong').modal('hide');
     });
 
@@ -78,7 +72,15 @@ function fullFields(name, email, typeDocument, numberDocument, form) {
           event.preventDefault();
           event.stopPropagation();
         }
-        fullFields(name, email, typeDocument, numberDocument, form);
+        
+        const validInputs = $('.form-control:invalid');
+        const check = $('.form-check-input:invalid');
+        if (validInputs.length === 0 && check.length === 0) {
+          writeUserData(name.value, email.value, typeDocument.value, numberDocument.value);
+          document.getElementById('register-js').classList.add('d-none');
+          document.getElementById('message').classList.remove('d-none');
+        }
+
         form.classList.add('was-validated');
       }, false);
     });
