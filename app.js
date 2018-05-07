@@ -35,7 +35,6 @@ function validateCharacter(numberDocument, numCharacter) {
     const numberDocument = document.getElementById('validationCustom04');
     const acceptTerms = document.getElementById('accept-terms');
     acceptTerms.addEventListener('click', function () {
-      document.getElementById("validationCustom05").checked = true;
       $('#exampleModalLong').modal('hide');
     });
 
@@ -72,7 +71,7 @@ function validateCharacter(numberDocument, numCharacter) {
           event.preventDefault();
           event.stopPropagation();
         }
-        
+
         const validInputs = $('.form-control:invalid');
         const check = $('.form-check-input:invalid');
         if (validInputs.length === 0 && check.length === 0) {
