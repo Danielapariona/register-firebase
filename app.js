@@ -29,6 +29,8 @@ function validateCharacter(numberDocument, numCharacter) {
     const forms = document.getElementsByClassName('needs-validation');
     const numberDocument = document.getElementById('validationCustom04');
     const typeDocument = document.getElementById('validationCustom03');
+    document.getElementById('validationCustom01').focus();
+
     numberDocument.addEventListener('input', function () {
       const numCharacterDni = 8;
       validateCharacter(numberDocument, numCharacterDni);
@@ -39,16 +41,16 @@ function validateCharacter(numberDocument, numCharacter) {
       numberDocument.value = "";
       numberDocument.focus();
       if (type === 'c.e.') {
-        console.log('c.e');
+        numberDocument.placeholder = 'Ingrese número C.E';
         numberDocument.addEventListener('input', function () {
           const numCharacterCE = 9;
           validateCharacter(numberDocument, numCharacterCE);
         });
       } else if (type === 'dni') {
-        console.log('dni');
+        numberDocument.placeholder = 'Ingrese número DNI';
         numberDocument.addEventListener('input', function () {
           const numCharacterDni = 8;
-          validateCharacter(numberDocument, numCharacterCE);
+          validateCharacter(numberDocument, numCharacterDni);
         });
       }
     })
@@ -57,7 +59,7 @@ function validateCharacter(numberDocument, numCharacter) {
       form.addEventListener('submit', function (event) {
         event.preventDefault();
         // Guarda datos de usuarios.
-        
+
         const email = document.getElementById('validationCustom02').value;
 
 

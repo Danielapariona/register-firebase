@@ -31,11 +31,11 @@
             <form class="needs-validation" novalidate>
               <h4 class="text-center text-green mb-3">Regístrate aquí</h4>
               <div class="form-group">
-                <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre" required>
+                <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre" maxlength="40" required>
                 <div class="invalid-feedback">Debe ingresar su nombre</div>
               </div>
               <div class="form-group">
-                <input class="form-control" type="email" placeholder="Correo" id="validationCustom02" required>
+                <input class="form-control" type="email" placeholder="Correo" id="validationCustom02" maxlength="30" required>
                 <div class="invalid-feedback">Ingrese un email válido</div>
               </div>
               <div class="form-row">
@@ -47,7 +47,7 @@
                   <div class="invalid-feedback">Debe seleccionar un tipo de documento</div>
                 </div>
                 <div class="col-md-8">
-                  <input class="form-control" type="number" placeholder="Ingrese número" id="validationCustom04" max="999999999" required>
+                  <input class="form-control" type="number" placeholder="Ingrese número DNI" id="validationCustom04" max="99999999" required>
                   <div class="invalid-feedback" id="invalid-dni">Ingrese número de documento válido</div>
                 </div>
               </div>
