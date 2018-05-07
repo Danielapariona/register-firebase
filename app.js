@@ -22,20 +22,28 @@ function validateCharacter(numberDocument, numCharacter) {
   (numberDocument.value.length > numCharacter) ? numberDocument.classList.add('is-invalid') : numberDocument.classList.remove('is-invalid');
 }
 
+function fullFields(name, email, typeDocument, numberDocument, form) {
+  if (name.value != "" && email.value !== "" && typeDocument.value != "" && numberDocument.value !== "" && form.checkValidity()) {
+    writeUserData(name.value, email.value, typeDocument.value, numberDocument.value);
+    document.getElementById('register-js').classList.add('d-none');
+    document.getElementById('message').classList.remove('d-none');
+  }
+}
+
 (function () {
   'use strict';
   window.addEventListener('load', function () {
     const forms = document.getElementsByClassName('needs-validation');
     const name = document.getElementById('validationCustom01');
-    const numberDocument = document.getElementById('validationCustom04');
+    name.focus();
+    const email = document.getElementById('validationCustom02');
     const typeDocument = document.getElementById('validationCustom03');
+    const numberDocument = document.getElementById('validationCustom04');
     const acceptTerms = document.getElementById('accept-terms');
     acceptTerms.addEventListener('click', function () {
       document.getElementById("invalidCheck").checked = true;
       $('#exampleModalLong').modal('hide');
     });
-
-    document.getElementById('validationCustom01').focus();
 
     numberDocument.addEventListener('input', function () {
       const numCharacterDni = 8;
@@ -66,18 +74,11 @@ function validateCharacter(numberDocument, numCharacter) {
       form.addEventListener('submit', function (event) {
         event.preventDefault();
         // Guarda datos de usuarios.
-        console.log('botón submit');
-        const email = document.getElementById('validationCustom02').value;
-        if (name != "" && email !== ""  && numberDocument.value !== "" && form.checkValidity()) {
-          console.log('ninguno vacío')
-          writeUserData(name.value, email, typeDocument.value, numberDocument.value);
-          document.getElementById('register-js').classList.add('d-none');
-          document.getElementById('message').classList.remove('d-none');
-        }
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
         }
+        fullFields(name, email, typeDocument, numberDocument, form);
         form.classList.add('was-validated');
       }, false);
     });
