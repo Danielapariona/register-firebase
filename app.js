@@ -76,6 +76,7 @@ function validateCharacter(numberDocument, numCharacter) {
         const check = $('.form-check-input:invalid');
         if (validInputs.length === 0 && check.length === 0) {
           writeUserData(name.value, email.value, typeDocument.value, numberDocument.value);
+          ga('create', 'UA-118833228-1', 'auto');
           ga('send', 'event', 'Register-early-adopters', 'register', 'Register Earnie');
           document.getElementById('register-js').classList.add('d-none');
           document.getElementById('message').classList.remove('d-none');
