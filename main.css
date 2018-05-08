@@ -1,7 +1,7 @@
 :root {
   --green: #009B3A; 
   --gray: rgb(138, 141, 143);
-  
+  --yellow: #FFA11A;
 }
 
 html {
@@ -30,6 +30,14 @@ footer {
   height: 100vh;
 }
 
+.bg-green {
+  background-color: var(--green);
+}
+
+.bg-yellow {
+  background-color: var(--yellow);
+}
+
 /* Restableciendo valores */ 
 .disabled {
   background-color: var(--gray);
@@ -39,6 +47,10 @@ footer {
 /* Helpers */
 .text-green {
   color: var(--green);
+}
+
+.text-white {
+  color: white;
 }
 
 .text-gray {

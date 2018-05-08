@@ -33,6 +33,7 @@ function validateCharacter(numberDocument, numCharacter) {
     const email = document.getElementById('validationCustom02');
     const typeDocument = document.getElementById('validationCustom03');
     const numberDocument = document.getElementById('validationCustom04');
+    const check = document.getElementById('validationCustom05');
     const acceptTerms = document.getElementById('accept-terms');
     acceptTerms.addEventListener('click', function () {
       $('#exampleModalLong').modal('hide');
@@ -62,6 +63,16 @@ function validateCharacter(numberDocument, numCharacter) {
         });
       }
     })
+
+    check.addEventListener("click", () => {
+      if(check.checked) {
+        console.log('checkedddd')
+        document.getElementById('send-data').classList.remove('disabled');
+      } else if(!check.checked) {
+        document.getElementById('send-data').classList.add('disabled');
+      }
+    });
+
 
     var validation = Array.prototype.filter.call(forms, function (form) {
       form.addEventListener('submit', function (event) {
