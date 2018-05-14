@@ -36,10 +36,13 @@ function validateCharacter(numberDocument, numCharacter) {
     const check = document.getElementById('validationCustom05');
     const check2 = document.getElementById('validationCustom06');
     const acceptTerms = document.getElementById('accept-terms');
+    const acceptTerms2 = document.getElementById('accept-terms-2');
     acceptTerms.addEventListener('click', function () {
       $('#exampleModalLong').modal('hide');
     });
-
+    acceptTerms2.addEventListener('click', function () {
+      $('#exampleModalLong2').modal('hide');
+    });
     numberDocument.addEventListener('input', function () {
       const numCharacterDni = 8;
       validateCharacter(numberDocument, numCharacterDni);
